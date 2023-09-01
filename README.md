@@ -1,6 +1,6 @@
-# Learning Docker & Kubernates Demo
+# Learning Docker & Kubernetes Demo
 
-Small example showing use of Docker & Kubernates. This sample was created for my own use during lectures, so nothing fancy here :-).
+This is a small example showing the use of Docker & Kubernetes. This sample was created for my use during lectures, so nothing fancy here :-).
 
 ## Building the API Docker image
 
@@ -33,7 +33,7 @@ docker run -p 5000:5000 -p 5001:5001 -d sswietoniowski/todo-api:version1.0
 docker run -p 5000:5000 -p 5001:5001 -d sswietoniowski/todo-api:version2.0
 ```
 
-In case of the MSSQL version, you need to run the MSSQL container first:
+In the case of the MSSQL version, you need to run the MSSQL container first:
 
 ```bash
 docker network create todo-app
@@ -41,7 +41,7 @@ docker volume create sqlvolume
 docker run --network todo-app --network-alias mssql -p 2433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password123!' -e 'MSSQL_PID=Developer' -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2019-latest
 ```
 
-To test connection to the MSSQL server from the app, run the following command:
+To test the connection to the MSSQL server from the app, run the following command:
 
 ```bash
 docker run --network todo-app -it --rm mcr.microsoft.com/mssql-tools sqlcmd -S mssql -U SA -P Password123!
@@ -96,7 +96,7 @@ We can then show how easy it is to scale the API deployment to 3 replicas:
 kubectl scale deployment todo-api --replicas=3
 ```
 
-If above won't work, try the following:
+If the above won't work, try the following:
 
 ```bash
 cd ./backend/api
@@ -114,4 +114,4 @@ kubectl get pods
 kubectl get services
 ```
 
-You can try out do the same on a remote machine for free using [this](https://labs.play-with-k8s.com/) service :-).
+You can try to do the same on a remote machine for free using [this](https://labs.play-with-k8s.com/) service :-).
