@@ -4,7 +4,7 @@ This is a small example showing the use of Docker & Kubernetes. This sample was 
 
 ## Building the API Docker image
 
-To build basic Docker images for the API, run the following command from the root of the repository.
+Run the following command from the repository's root to build basic Docker images for the API.
 
 Version 1.0 (using SQLite database, no volumes configured)
 
